@@ -16,7 +16,7 @@ def index():
             references=references
         )
     else:
-        delete_id = request.form.get('delete')
+        delete_id = request.form.get('confirm-delete')
         if delete_id: # Delete reference
             service.delete_reference(int(delete_id))
             return redirect('/')

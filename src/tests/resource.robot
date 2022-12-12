@@ -45,9 +45,9 @@ Send Book Reference
 
 Delete Reference
     Click Button  name:delete
-    Click Button  name:delete_check
+    Click Button  name:confirm-delete
 
 Download References
     Go To Main Page
-    Click Button  download
+    Click Button  download-all
     File Should Exist  ~/Downloads/references.bib
