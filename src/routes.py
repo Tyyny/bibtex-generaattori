@@ -43,13 +43,13 @@ def send_reference(ref_type: str):
             service.save_reference(author, title, year)
         if ref_type == "book":
             booktitle = request.form['booktitle']
-            pagenumber = request.form['pagenumber']
+            pages = request.form['pages']
             service.save_reference_book(
                 author,
                 title,
                 year,
                 booktitle,
-                pagenumber
+                pages
             )
     return redirect('/')
 
