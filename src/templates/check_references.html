@@ -53,6 +53,10 @@
             </div>
           </div>
         </div>
+        <form action="/edit/<ref_type>" method='POST'>
+          <input type="hidden" name="id" value="{{ reference.id }}">
+          <button type="submit" class="btn btn-secondary" name="edit" type="button"><i class="bi bi-pencil-square"></i></button>
+        </form>
       </td>
     </tr>
     {% endfor %}
@@ -60,6 +64,16 @@
   </table>
   <button type="submit" name="action" value="download-selected" class="btn btn-outline-primary">Lataa valitut viitteet</button>
   <button type="submit" name="action" value="download-all" class="btn btn-outline-primary">Lataa kaikki viitteet</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<hr>
+
+<form action="/download" method="POST">
+    <button type="submit" name="download" class="btn btn-outline-primary">Lataa viitteet</button>
 </form>
 <hr>
 
