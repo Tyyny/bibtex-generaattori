@@ -34,6 +34,8 @@ def send_reference(ref_type: str):
     """New reference page."""
     if request.method == 'GET':
         return render_template('send_reference.html', ref_type=ref_type)
+    if request.method == 'POST':
+        return redirect(f'/edit/{ref_type}')
     else:
         ref_type = request.form['ref_type']
         author = request.form['author']

@@ -56,6 +56,10 @@
           </div>
         </div>
       </form>
+      <form action="/edit/<ref_type>" method='POST'>
+        <input type="hidden" name="id" value="{{ reference.id }}">
+        <button type="submit" class="btn btn-secondary" name="edit" type="button"><i class="bi bi-pencil-square"></i></button>
+      </form>
     </td>
   </tr>
   {% endfor %}
