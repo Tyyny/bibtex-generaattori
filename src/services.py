@@ -50,6 +50,14 @@ class Service:
         with open('references.bib','w', encoding='utf-8') as file:
             file.write(text)
 
+    def create_bibtex_string_from_selected(self, selected: set) -> str:
+        references = Reference.query.filter(Reference.id.in_(selected)).all()
+        result = ''
+        for reference in references:
+            result += reference.to_bibtex() + '\n\n'
+
+        return result
+
     def delete_reference(self, ref_id: int):
         """Remove reference from database"""
         reference = Reference.query.filter_by(id=ref_id).one()
