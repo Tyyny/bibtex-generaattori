@@ -29,7 +29,9 @@ def index():
             return Response(
                 bibtex_str,
                 mimetype='text/plain',
-                headers={'Content-disposition': 'attachment; filename=references.bib'}
+                headers={
+                    'Content-disposition': 'attachment; filename=references.bib'
+                }
             )
 
 @app.route('/type', methods=['GET', 'POST'])

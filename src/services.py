@@ -51,7 +51,8 @@ class Service:
             file.write(text)
 
     def create_bibtex_string_from_selected(self, selected: set) -> str:
-        references = Reference.query.filter(Reference.id.in_(selected)).all()
+        """Create bibtex string from selected reference ids."""
+        references = Reference.query.filter(Reference.id.in_(selected)).all() # pylint: disable=no-member
         result = ''
         for reference in references:
             result += reference.to_bibtex() + '\n\n'
