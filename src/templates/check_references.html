@@ -26,9 +26,9 @@
       <td>{{ reference.title }}</td>
       <td>{{ reference.year }}</td>
       <!-- This is a mess, maybe move to separate tables for different reference types --->
-      {% if reference.pagenumber is not none %}
+      {% if reference.pages is not none %}
       <td>{{ reference.booktitle }}</td>
-      <td>{{ reference.pagenumber }}</td>
+      <td>{{ reference.pages }}</td>
       {% else %}
       <td></td>
       <td></td>
