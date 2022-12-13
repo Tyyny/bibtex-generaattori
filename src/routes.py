@@ -39,9 +39,9 @@ def send_reference(ref_type: str):
         author = request.form['author']
         title = request.form['title']
         year = request.form['year']
-        if ref_type == "inCollection":
+        if ref_type == "InCollection":
             service.save_reference(author, title, year)
-        if ref_type == "book":
+        if ref_type == "Book":
             booktitle = request.form['booktitle']
             pages = request.form['pages']
             service.save_reference_book(
@@ -73,9 +73,9 @@ def edited_ref_to_database():
     author = request.form['author']
     title = request.form['title']
     year = request.form['year']
-    if ref_type == "inCollection":
+    if ref_type == "InCollection":
         service.edit_reference(ref_id, author, title, year)
-    if ref_type == "book":
+    if ref_type == "Book":
         booktitle = request.form['booktitle']
         pages = request.form['pages']
         service.edit_reference_book(

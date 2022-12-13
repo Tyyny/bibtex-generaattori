@@ -2,10 +2,10 @@
 {% block content %}
 <title>Muokkaa viitettä</title>
 <h1>Muokkaa viitettä</h1>
-{% if ref_type == "inCollection" %}
+{% if ref_type == "InCollection" %}
 <form action='/edited' method="POST">
     <input type="hidden" name="id" value = {{ref_id}}>
-  <input type="hidden" name="ref_type" value="inCollection">
+  <input type="hidden" name="ref_type" value="InCollection">
   <div class="mb-3">
     <label for="author">Author:</label>
     <input type="text" class="form-control" name="author" value={{ author }}>
@@ -21,10 +21,10 @@
   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 </form>
 
-{% elif ref_type == "book" %}
+{% elif ref_type == "Book" %}
 <form action='/edited' method="POST">
     <input type="hidden" name="id" value = {{ref_id}}>
-  <input type="hidden" name="ref_type" value="book">
+  <input type="hidden" name="ref_type" value="Book">
   <div class="mb-3">
     <label for="author">Author:</label>
     <input type="text" class="form-control" name="author" value={{ author }}>
