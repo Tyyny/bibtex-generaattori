@@ -55,9 +55,9 @@ Select Reference
 Download References
     Go To Main Page
     Click Button  download-all
-    File Should Exist  ~/Downloads/references.bib
+    File Should Exist  ./references.bib
 
 Download Selected References
     Go To Main Page
     Click Button  download-selected
-    File Should Exist  ~/Downloads/references.bib
+    File Should Exist  ./references.bib

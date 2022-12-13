@@ -9,8 +9,6 @@ done
 poetry run robot src/tests/
 status=$?
 
-find / -type f -print 2>/dev/null | grep references.bib
-
 kill $(lsof -t -i:5000)
 rm src/instance/test.db
 exit $status
