@@ -68,9 +68,11 @@ class TestReferenceList:
             bibtex_str = self.services.create_bibtex_str_from_selected(selected)
 
             should_be = (
-                '@InCollection{2Author12022,author={Test Author1},title={Test Title1},booktitle={},year={2022},pages={}}' #pylint: disable=line-too-long
+                '@InCollection{2Author12022,author={Test Author1},'
+                'title={Test Title1},booktitle={},year={2022},pages={}}'
                 '\n\n'
-                '@InCollection{3Author22022,author={Test Author2},title={Test Title2},booktitle={},year={2022},pages={}}' #pylint: disable=line-too-long
+                '@InCollection{3Author22022,author={Test Author2},'
+                'title={Test Title2},booktitle={},year={2022},pages={}}'
             )
 
             assert bibtex_str == should_be
