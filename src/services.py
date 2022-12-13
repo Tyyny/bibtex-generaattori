@@ -44,18 +44,22 @@ class Service:
         """Create bibtex file for upload."""
         references = Reference.query.all()
         text = ''
-        for reference in references:
-            text += reference.to_bibtex() + '\n\n'
+        for i, reference in enumerate(references):
+            text += reference.to_bibtex()
+            if i == len(references) - 1:
+                text += '\n\n'
 
         with open('references.bib','w', encoding='utf-8') as file:
             file.write(text)
 
-    def create_bibtex_string_from_selected(self, selected: set) -> str:
+    def create_bibtex_str_from_selected(self, selected: set) -> str:
         """Create bibtex string from selected reference ids."""
         references = Reference.query.filter(Reference.id.in_(selected)).all() # pylint: disable=no-member
         result = ''
-        for reference in references:
-            result += reference.to_bibtex() + '\n\n'
+        for i, reference in enumerate(references):
+            result += reference.to_bibtex()
+            if i == len(references) - 1:
+                result += '\n\n'
 
         return result
 
