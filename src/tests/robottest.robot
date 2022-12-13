@@ -14,11 +14,11 @@ Go To Send Page And Check Title
     Click Button  submit
     Send Page Should Be Open
 
-Go To Send Page And Send Reference
+Go To Send Page And Send inCollection Reference
     Go To Send Page
     Select From List By Value  name:type  inCollection
     Click Button  submit
-    Send Reference  Mikael Agricola  Abckiria  1543
+    Send inCollection Reference  Mikael Agricola  Abckiria  1543
     Main Page Should Be Open
     Page Should Contain  Mikael Agricola
     Page Should Contain  Abckiria
@@ -29,7 +29,7 @@ Delete Reference
     Go To Send Page
     Select From List By Value  name:type  inCollection
     Click Button  submit
-    Send Reference  Mika Waltari  Sinuhe Egyptiläinen  1945
+    Send inCollection Reference  Mika Waltari  Sinuhe Egyptiläinen  1945
     Delete Reference
     Page Should Not Contain  Mika Waltari
     Page Should Not Contain  Sinuhe Egyptiläinen

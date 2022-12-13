@@ -58,3 +58,15 @@ def download_references():
     """Download all references."""
     service.create_bibtex_file()
     return send_file('references.bib', as_attachment=True)
+
+@app.route('/doi2bib', methods=['GET', 'POST'])
+def doi2bib():
+    """Get reference info from Doi-number"""
+    if request.method == 'GET':
+        return render_template('doi.html')
+    else:
+        doi_number = request.form['doinumber']
+        reference = service.get_bibtex_from_doi(doi_number)
+        print(reference)
+        #Do something with reference
+        return redirect('/')

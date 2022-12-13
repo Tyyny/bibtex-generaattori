@@ -1,6 +1,8 @@
 """Module for database actions"""
+import sys
+import urllib.request
+from urllib.error import HTTPError
 from init import Reference
-
 
 class Service:
     """Class for database actions"""
@@ -28,7 +30,7 @@ class Service:
             title=title,
             booktitle=booktitle,
             year=year,
-            pagenumber=pagenumber,
+            pages=pagenumber,
             type_id=2
         )
         self.database.session.add(new)  # pylint: disable=no-member
@@ -53,3 +55,21 @@ class Service:
         reference = Reference.query.filter_by(id=ref_id).one()
         self.database.session.delete(reference) # pylint: disable=no-member
         self.database.session.commit() # pylint: disable=no-member
+
+    def get_bibtex_from_doi(self, doi):
+        """Module from https://scipython.com/blog/doi-to-bibtex/"""
+        base_url = 'http://dx.doi.org/'
+
+        url = base_url + doi
+        req = urllib.request.Request(url)
+        req.add_header('Accept', 'application/x-bibtex')
+        try:
+            with urllib.request.urlopen(req) as reader:
+                bibtex = reader.read().decode()
+            return bibtex
+        except HTTPError as error:
+            if error.code == 404:
+                print('DOI not found.')
+            else:
+                print('Service unavailable.')
+            sys.exit(1)

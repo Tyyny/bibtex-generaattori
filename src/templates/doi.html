@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/doi2bib" method="POST">
+    <div class="mb-3">
+        <label for="title">Lisää viite DOI-tunnisteella</label>
+        <input type="text" class="form-control" name="doinumber">
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary">Lähetä</button>
+</form>
+{% endblock %}
