@@ -46,7 +46,7 @@ class Service:
         text = ''
         for i, reference in enumerate(references):
             text += reference.to_bibtex()
-            if i == len(references) - 1:
+            if i != len(references) - 1:
                 text += '\n\n'
 
         with open('references.bib','w', encoding='utf-8') as file:
@@ -58,7 +58,7 @@ class Service:
         result = ''
         for i, reference in enumerate(references):
             result += reference.to_bibtex()
-            if i == len(references) - 1:
+            if i != len(references) - 1:
                 result += '\n\n'
 
         return result
