@@ -53,21 +53,22 @@ def send_reference(ref_type: str):
             )
     return redirect('/')
 
-@app.route('/edit_reference/<id>', methods=['GET', 'POST'])
-def edit_reference(id: int):
+@app.route('/edit_reference/<ref_id>', methods=['GET', 'POST'])
+def edit_reference(ref_id: int):
     """Pre-filled form for editing a reference"""
-    id = request.form['id']
-    ref = service.get_reference_by_id(id)
-    return render_template('edit_reference.html', ref_id=id,
+    ref_id = request.form['id']
+    ref = service.get_reference_by_id(ref_id)
+    return render_template('edit_reference.html', ref_id=ref_id,
                                                     ref_type=ref.type.name,
                                                     author=ref.author,
                                                     title=ref.title,
                                                     year=ref.year,
                                                     booktitle=ref.booktitle,
                                                     pages=ref.pages)
-    
+
 @app.route('/edited', methods=['GET', 'POST'])
 def edited_ref_to_database():
+    """Updates edited reference to the database"""
     ref_id = request.form['id']
     ref_type = request.form['ref_type']
     author = request.form['author']
