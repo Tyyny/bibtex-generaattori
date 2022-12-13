@@ -30,7 +30,7 @@ class Service:
             title=title,
             booktitle=booktitle,
             year=year,
-            pagenumber=pagenumber,
+            pages=pagenumber,
             type_id=2
         )
         self.database.session.add(new)  # pylint: disable=no-member

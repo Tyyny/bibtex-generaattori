@@ -41,7 +41,8 @@ Send Book Reference
     Input Text  name=booktitle  ${BOOK_TITLE}
     Input Text  name=year  ${YEAR}
     Input Text  name=pagenumber  ${PAGENUMBER}
-    Click Button  submit
+    Press Keys   xpath=//body  \ue00f
+    Click Element  name:submit
 
 Delete Reference
     Click Button  name:delete
