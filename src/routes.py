@@ -25,7 +25,7 @@ def index():
             return send_file('references.bib', as_attachment=True)
         else: # Download selected references
             selected = set(request.form.getlist('selected-ref'))
-            bibtex_str = service.create_bibtex_string_from_selected(selected)
+            bibtex_str = service.create_bibtex_str_from_selected(selected)
             return Response(
                 bibtex_str,
                 mimetype='text/plain',
