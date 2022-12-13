@@ -48,7 +48,16 @@ Delete Reference
     Click Button  name:delete
     Click Button  name:confirm-delete
 
+Select Reference
+    [Arguments]  ${ID}
+    Select Checkbox  id:chkbox-${ID}
+
 Download References
     Go To Main Page
     Click Button  download-all
+    File Should Exist  ~/Downloads/references.bib
+
+Download Selected References
+    Go To Main Page
+    Click Button  download-selected
     File Should Exist  ~/Downloads/references.bib
