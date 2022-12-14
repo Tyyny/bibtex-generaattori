@@ -46,9 +46,18 @@ Send Book Reference
 
 Delete Reference
     Click Button  name:delete
-    Click Button  name:delete_check
+    Click Button  name:confirm-delete
+
+Select Reference
+    [Arguments]  ${ID}
+    Select Checkbox  id:chkbox-${ID}
 
 Download References
     Go To Main Page
-    Click Button  download
-    File Should Exist  ~/Downloads/references.bib
+    Click Button  download-all
+    File Should Exist  ./references.bib
+
+Download Selected References
+    Go To Main Page
+    Click Button  download-selected
+    File Should Exist  ./references.bib

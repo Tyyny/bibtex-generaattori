@@ -1,5 +1,5 @@
 """Module for all different routes of the app."""
-from flask import render_template, request, redirect, send_file
+from flask import render_template, request, redirect, send_file, Response
 from init import app, db
 from services import Service
 
@@ -16,9 +16,23 @@ def index():
             references=references
         )
     else:
-        ref_id = int(request.form["id"])
-        service.delete_reference(ref_id)
-        return redirect('/')
+        delete_id = request.form.get('confirm-delete')
+        if delete_id: # Delete reference
+            service.delete_reference(int(delete_id))
+            return redirect('/')
+        elif request.form['action'] == 'download-all': # Download all references
+            service.create_bibtex_file()
+            return send_file('references.bib', as_attachment=True)
+        else: # Download selected references
+            selected = set(request.form.getlist('selected-ref'))
+            bibtex_str = service.create_bibtex_str_from_selected(selected)
+            return Response(
+                bibtex_str,
+                mimetype='text/plain',
+                headers={
+                    'Content-disposition': 'attachment; filename=references.bib'
+                }
+            )
 
 @app.route('/type', methods=['GET', 'POST'])
 def choose_reference_type():
@@ -52,12 +66,6 @@ def send_reference(ref_type: str):
                 pagenumber
             )
     return redirect('/')
-
-@app.route('/download', methods=['POST'])
-def download_references():
-    """Download all references."""
-    service.create_bibtex_file()
-    return send_file('references.bib', as_attachment=True)
 
 @app.route('/doi2bib', methods=['GET', 'POST'])
 def doi2bib():
