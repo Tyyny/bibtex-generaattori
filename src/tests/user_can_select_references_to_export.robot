@@ -7,13 +7,13 @@ Suite Teardown  Close Browser
 Send 3 References And Download 2
  
     Go To Send Page
-    Select From List By Value  name:type  inCollection
+    Select From List By Value  name:type  InCollection
     Click Button  submit
-    Send inCollection Reference  Mikael Agricola  Abckiria  1543
+    Send InCollection Reference  Mikael Agricola  Abckiria  1543
     Go To Send Page
-    Select From List By Value  name:type  inCollection
+    Select From List By Value  name:type  InCollection
     Click Button  submit
-    Send inCollection Reference  Mika Waltari  Sinuhe Egyptiläinen  1945
+    Send InCollection Reference  Mika Waltari  Sinuhe Egyptiläinen  1945
     Go To Send Page
     Select From List By Value  name:type  book
     Click Button  submit

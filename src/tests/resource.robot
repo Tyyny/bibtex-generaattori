@@ -27,7 +27,7 @@ Main Page Should Be Open
 Send Page Should Be Open
     Title Should Be  Tallenna viite
 
-Send inCollection Reference
+Send InCollection Reference
     [Arguments]  ${AUTHOR}  ${TITLE}  ${YEAR}
     Input Text  name=author  ${AUTHOR}
     Input Text  name=title  ${TITLE}
