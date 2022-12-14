@@ -99,7 +99,7 @@ class Service:
         self.database.session.commit()# pylint: disable=no-member
 
     def edit_reference_book(self, ref_id: int, author: str, title: str,
-        year: str, booktitle: str, pages: str):
+        year: str, booktitle: str, pages: str): # pylint: disable=too-many-arguments
         """Edit book type reference"""
         reference_to_edit = Reference.query.filter_by(id=ref_id).one()
         reference_to_edit.author = author
