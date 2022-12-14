@@ -66,6 +66,10 @@
   <button type="submit" name="action" value="download-selected" class="btn btn-outline-primary">Lataa valitut viitteet</button>
   <button type="submit" name="action" value="download-all" class="btn btn-outline-primary">Lataa kaikki viitteet</button>
       </form>
+      <form action="/edit_reference/<id>" method='POST'>
+        <input type="hidden" name="id" value="{{ reference.id }}">
+        <button type="submit" class="btn btn-secondary" name="edit" type="button"><i class="bi bi-pencil-square"></i></button>
+      </form>
     </td>
   </tr>
   </tbody>
