@@ -34,11 +34,7 @@
       <td></td>
       {% endif %}
       <td>
-        <form action=""></form>
-        <form action="/edit_reference/<id>" method='POST'>
-          <input type="hidden" name="id" value="{{ reference.id }}">
-          <button type="submit" class="btn btn-secondary" name="edit" type="button"><i class="bi bi-pencil-square"></i></button>
-        </form>
+        <a href="/edit_reference/{{ reference.id }}" class="btn btn-secondary" role="button">Edit</a>
         <!-- If more post request actions are added, add a form field here that tells that this button is for the remove action -->
         <button class="btn btn-danger" name="delete" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal{{ reference.id }}"><i class="bi bi-trash3"></i></button>
         <div class="modal fade" id="deleteModal{{ reference.id }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -65,10 +61,6 @@
   </table>
   <button type="submit" name="action" value="download-selected" class="btn btn-outline-primary">Lataa valitut viitteet</button>
   <button type="submit" name="action" value="download-all" class="btn btn-outline-primary">Lataa kaikki viitteet</button>
-      </form>
-      <form action="/edit_reference/<id>" method='POST'>
-        <input type="hidden" name="id" value="{{ reference.id }}">
-        <button type="submit" class="btn btn-secondary" name="edit" type="button"><i class="bi bi-pencil-square"></i></button>
       </form>
     </td>
   </tr>

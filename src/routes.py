@@ -70,7 +70,6 @@ def send_reference(ref_type: str):
 @app.route('/edit_reference/<ref_id>', methods=['GET', 'POST'])
 def edit_reference(ref_id: int):
     """Pre-filled form for editing a reference"""
-    ref_id = request.form['id']
     ref = service.get_reference_by_id(ref_id)
     return render_template('edit_reference.html', ref_id=ref_id,
                                                     ref_type=ref.type.name,
