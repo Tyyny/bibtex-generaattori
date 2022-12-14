@@ -20,6 +20,6 @@ Send 3 References And Download 2
     Send Book Reference  Charles Bukowski  Postitoimisto  Postitoimisto  1971  100-110
     Main Page Should Be Open
     Select Reference  1
-    Select Reference  3
     Press Keys  xpath=//body  \ue010
+    Select Reference  3
     Download Selected References
