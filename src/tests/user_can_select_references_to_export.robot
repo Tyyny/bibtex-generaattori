@@ -15,7 +15,7 @@ Send 3 References And Download 2
     Click Button  submit
     Send InCollection Reference  Mika Waltari  Sinuhe Egyptiläinen  1945
     Go To Send Page
-    Select From List By Value  name:type  book
+    Select From List By Value  name:type  Book
     Click Button  submit
     Send Book Reference  Charles Bukowski  Postitoimisto  Postitoimisto  1971  100-110
     Main Page Should Be Open
